@@ -19,13 +19,12 @@ const UpdateSpace = () => {
   const [apiError, setApiError] = useState(false);
   const onChange = (e) => {
     shuttleData.id = shuttles.id;
-    console.log(shuttleData);
+
     setShuttleData({ ...shuttleData, [e.target.id]: e.target.value });
   };
   const submit = (e) => {
     e.preventDefault();
     updateSpace(shuttleData, setApiError);
-    console.log(shuttleData);
     const path = '/';
     history.push(path);
   };

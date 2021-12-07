@@ -18,7 +18,6 @@ const HomePage = () => {
     fetchShuttles(setShuttles, setApiError);
   }, []);
   const update = (shuttle) => {
-    console.log(shuttle);
     history.push({
       pathname: '/updateSpace',
       state: {
