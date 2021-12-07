@@ -27,7 +27,7 @@ const RoomsCard = ({ shuttle, onClick }) => (
       </CardContent>
     </CardActionArea>
     <CardActions>
-      <Button size="small" color="primary" onClick={onClick}>
+      <Button data-testid="onclick" size="small" color="primary" onClick={onClick}>
         Update
       </Button>
     </CardActions>

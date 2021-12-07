@@ -57,3 +57,13 @@ it('RouteChange', () => {
   fireEvent.click(screen.getByTestId('buttonx'));
   expect(mockHistoryPush).toHaveBeenCalledWith('/createSpace');
 });
+it('shows cards', () => {
+  fetchShuttles.mockImplementation((setShuttles, setApiError) => {
+    setShuttles(fakeShuttle);
+    setApiError(false);
+  });
+  render(
+    <MemoryRouter><HomePage /></MemoryRouter>
+  );
+  fireEvent.click(screen.getByTestId('onclick'));
+});
