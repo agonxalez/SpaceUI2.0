@@ -4,6 +4,7 @@ import fetchShuttles from './HomePageService';
 import constants from '../../utils/constants';
 import SpaceShuttleCard from '../Card/SpaceShuttleCard';
 import styles from './HomePage.module.css';
+import DeleteSpaceShuttle from './HomePageDeleteService';
 
 const HomePage = () => {
   const history = useHistory();
@@ -24,11 +25,15 @@ const HomePage = () => {
       }
     });
   };
+  const deleteSpaceShuttle = async (shuttle) => {
+    await DeleteSpaceShuttle(shuttle.id);
+    fetchShuttles(setShuttles, setApiError);
+  };
   return (
     <>
       <div>
         <div>
-          {apiError && <p>{constants.API_ERROR}</p>}
+          {apiError && <p className={styles.errMsg} data-testid="errMsg">{constants.API_ERROR}</p>}
         </div>
         <div className={styles.title}>
           <h1>In Space</h1>
@@ -44,6 +49,7 @@ const HomePage = () => {
                 shuttle={shuttle}
                 key={shuttle.id}
                 onClick={() => update(shuttle)}
+                onDelete={() => deleteSpaceShuttle(shuttle)}
               />
 
             ))}

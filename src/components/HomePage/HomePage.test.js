@@ -3,9 +3,11 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import HomePage from './HomePage';
 import fetchShuttles from './HomePageService';
+import DeleteSpaceShuttle from './HomePageDeleteService';
 
 const mockHistoryPush = jest.fn();
 jest.mock('./HomePageService');
+jest.mock('./HomePageDeleteService');
 let container = null;
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -66,4 +68,16 @@ it('shows cards', () => {
     <MemoryRouter><HomePage /></MemoryRouter>
   );
   fireEvent.click(screen.getByTestId('onclick'));
+});
+it('shows cards', () => {
+  fetchShuttles.mockImplementation((setShuttles, setApiError) => {
+    setShuttles(fakeShuttle);
+    setApiError(false);
+  });
+  render(
+    <MemoryRouter><HomePage /></MemoryRouter>
+  );
+  fireEvent.click(screen.getByTestId('ondelete'));
+  DeleteSpaceShuttle.mockImplementation(() => {
+  });
 });

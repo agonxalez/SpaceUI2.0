@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const RoomsCard = ({ shuttle, onClick }) => (
+const RoomsCard = ({ shuttle, onClick, onDelete }) => (
   <Card sx={{ maxWidth: 345 }}>
     <CardActionArea>
       <CardMedia
@@ -29,6 +29,9 @@ const RoomsCard = ({ shuttle, onClick }) => (
     <CardActions>
       <Button data-testid="onclick" size="small" color="primary" onClick={onClick}>
         Update
+      </Button>
+      <Button data-testid="ondelete" size="small" color="primary" onClick={onDelete}>
+        Delete
       </Button>
     </CardActions>
   </Card>
