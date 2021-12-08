@@ -18,11 +18,11 @@ const RoomsCard = ({ shuttle, onClick }) => (
         <Typography gutterBottom variant="h5" component="div">
           {shuttle.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color="text.secondary">
           {shuttle.description}
         </Typography>
-        <Typography variant="body3" color="text.secondary">
-          {shuttle.active}
+        <Typography variant="body2" color="text.secondary">
+          {shuttle.release}
         </Typography>
       </CardContent>
     </CardActionArea>

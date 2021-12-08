@@ -36,7 +36,7 @@ const CreateSpace = () => {
                 aria-label="name"
                 type="text"
                 className="form-control"
-                data-testId="name"
+                data-testid="name"
                 label="name"
                 id="name"
                 onChange={onChange}
@@ -52,7 +52,7 @@ const CreateSpace = () => {
                 aria-label="active"
                 type="text"
                 label="active"
-                data-testId="active"
+                data-testid="active"
                 className="form-control"
                 id="active"
                 onChange={onChange}
@@ -69,7 +69,7 @@ const CreateSpace = () => {
                 type="text"
                 className="form-control"
                 label="description"
-                data-testId="description"
+                data-testid="description"
                 id="description"
                 onChange={onChange}
                 placeholder="Another input"
@@ -85,7 +85,7 @@ const CreateSpace = () => {
                 aria-label="amount"
                 className="form-control"
                 label="amount"
-                data-testId="amount"
+                data-testid="amount"
                 id="amount"
                 onChange={onChange}
                 placeholder="Another input"
@@ -101,7 +101,7 @@ const CreateSpace = () => {
                 aria-label="release"
                 className="form-control"
                 label="release"
-                data-testId="release"
+                data-testid="release"
                 id="release"
                 onChange={onChange}
                 placeholder="Another input"

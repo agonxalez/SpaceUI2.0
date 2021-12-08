@@ -4,7 +4,6 @@ import fetchShuttles from './HomePageService';
 import constants from '../../utils/constants';
 import SpaceShuttleCard from '../Card/SpaceShuttleCard';
 import styles from './HomePage.module.css';
-// import updateSpace from '../UpdateSpace/UpdateSpace.Service';
 
 const HomePage = () => {
   const history = useHistory();
@@ -32,17 +31,21 @@ const HomePage = () => {
           {apiError && <p>{constants.API_ERROR}</p>}
         </div>
         <div className={styles.title}>
-          <h1>Space Shuttles</h1>
+          <h1>In Space</h1>
         </div>
         <div>
           <div className={styles.wrap}>
-            <button type="button" data-testid="buttonx" onClick={routeChange} className={styles.button}> Create new SpaceShuttles </button>
+            <button type="button" data-testid="buttonx" onClick={routeChange} className={styles.button}> New Trips Across Space </button>
           </div>
           <div className={styles.app}>
             {shuttles.map((shuttle) => (
-              <div>
-                <SpaceShuttleCard shuttle={shuttle} onClick={() => update(shuttle)} />
-              </div>
+
+              <SpaceShuttleCard
+                shuttle={shuttle}
+                key={shuttle.id}
+                onClick={() => update(shuttle)}
+              />
+
             ))}
           </div>
         </div>
