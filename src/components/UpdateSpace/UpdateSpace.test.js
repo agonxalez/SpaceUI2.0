@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import UpdateSpace from './UpdateSpace';
 
 const shuttle = [{
@@ -23,10 +23,4 @@ it('RenderUpdateSpace', () => {
     <UpdateSpace />
   );
   expect(screen.getByTestId('buttonx')).toBeInTheDocument();
-});
-it('RenderUpdateSpace', () => {
-  render(
-    <UpdateSpace />
-  );
-  fireEvent.click(screen.getByTestId('buttonx')).toBeInTheDocument();
 });
