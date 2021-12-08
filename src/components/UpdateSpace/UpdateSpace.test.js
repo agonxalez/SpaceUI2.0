@@ -1,7 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import UpdateSpace from './UpdateSpace';
 
+const mockHistoryPush = jest.fn();
 const shuttle = [{
   name: 'danny',
   id: 1,
@@ -15,6 +17,9 @@ jest.mock('react-router-dom', () => ({
   useLocation: () => ({
     pathname: 'localhost:3000/',
     state: { shuttle }
+  }),
+  useHistory: () => ({
+    push: mockHistoryPush
   })
 }));
 
@@ -23,4 +28,21 @@ it('RenderUpdateSpace', () => {
     <UpdateSpace />
   );
   expect(screen.getByTestId('buttonx')).toBeInTheDocument();
+});
+it('render and click button', () => {
+  render(
+    <MemoryRouter>
+      <UpdateSpace />
+    </MemoryRouter>
+  );
+  fireEvent.click(screen.getByTestId('buttonx'));
+});
+it('render and click button', () => {
+  render(
+    <MemoryRouter>
+      <UpdateSpace />
+    </MemoryRouter>
+  );
+  const name = screen.getByTestId('name');
+  fireEvent.change(name, { target: { value: 'Danny' } });
 });

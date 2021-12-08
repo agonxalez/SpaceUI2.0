@@ -45,7 +45,7 @@ const UpdateSpace = () => {
                 id="name"
                 onChange={onChange}
                 placeholder="Another input"
-                value={shuttleData.name}
+                value={shuttleData.name || ''}
               />
             </label>
           </div>
@@ -61,7 +61,7 @@ const UpdateSpace = () => {
                 id="active"
                 onChange={onChange}
                 placeholder="Another input"
-                value={shuttleData.active}
+                value={shuttleData.active || ''}
               />
             </label>
           </div>
@@ -77,7 +77,7 @@ const UpdateSpace = () => {
                 id="description"
                 onChange={onChange}
                 placeholder="Another input"
-                value={shuttleData.description}
+                value={shuttleData.description || ''}
               />
             </label>
           </div>
@@ -93,7 +93,7 @@ const UpdateSpace = () => {
                 id="amount"
                 onChange={onChange}
                 placeholder="Another input"
-                value={shuttleData.amount}
+                value={shuttleData.amount || ''}
               />
             </label>
           </div>
@@ -109,7 +109,7 @@ const UpdateSpace = () => {
                 id="release"
                 onChange={onChange}
                 placeholder="Another input"
-                value={shuttleData.release}
+                value={shuttleData.release || ''}
               />
             </label>
           </div>
