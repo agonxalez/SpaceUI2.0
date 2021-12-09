@@ -4,6 +4,12 @@
     margin: 0px 2px 4px 4px;
 }
 
+.errorMessage {
+    color: red;
+    position: relative;
+    padding-top: 0;
+}
+
 .signupSection {
     background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
     background-repeat: no-repeat;
@@ -28,6 +34,15 @@ body {
     padding: 0;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
+}
+
+.loginbox .userbox label {
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    transition: .5s;
 }
 
 .loginbox {
@@ -62,6 +77,23 @@ body {
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    position: relative;
+}
+
+.loginbox .erroruserbox {
+    position: relative;
+}
+
+.loginbox .erroruserbox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid red;
     outline: none;
     background: transparent;
     position: relative;
@@ -119,8 +151,7 @@ body {
     transition: all .3s ease-in-out 0s;
 }
 
-.button:hover,
-.button:focus {
+.button:hover {
 
     transform: translateY(-6px);
 }
@@ -140,8 +171,7 @@ body {
     animation: ring 1.5s infinite;
 }
 
-.button:hover::after,
-.button:focus::after {
+.button:hover::after {
     animation: none;
     display: none;
 }
@@ -159,16 +189,3 @@ body {
         opacity: 0;
     }
 }
-.login-box form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #03e9f4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
-  }

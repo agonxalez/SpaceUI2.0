@@ -22,9 +22,9 @@ const UpdateSpace = () => {
 
     setShuttleData({ ...shuttleData, [e.target.id]: e.target.value });
   };
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    updateSpace(shuttleData, setApiError);
+    await updateSpace(shuttleData, setApiError);
     const path = '/';
     history.push(path);
   };

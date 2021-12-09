@@ -26,10 +26,12 @@ it('goes through post', () => {
   const description = screen.getByTestId('description');
   const release = screen.getByTestId('release');
   const active = screen.getByTestId('active');
+  const amount = screen.getByTestId('amount');
   fireEvent.change(name, { target: { value: 'Danny' } });
   fireEvent.change(description, { target: { value: 'Danny' } });
   fireEvent.change(release, { target: { value: '2021-12-12' } });
   fireEvent.change(active, { target: { value: true } });
+  fireEvent.change(amount, { target: { value: 12 } });
   expect(screen.getByTestId('name').value).toBe('Danny');
   screen.getByTestId('buttonx').click();
 });
