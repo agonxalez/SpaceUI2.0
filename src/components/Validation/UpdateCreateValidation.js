@@ -15,6 +15,15 @@ const UpdateCreateValidation = (spaceData) => {
   if (!spaceData.release) {
     errors.release = 'Needs to contain release.';
   }
+  if (!(/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/).test(spaceData.release)) {
+    errors.release = 'Release Date must follow yyyy-mm-dd.';
+  }
+  if (!(/^([t][r][u][e]|[f][a][l][s][e])$/).test(spaceData.active)) {
+    errors.active = 'Needs to be true or false in all lowercase.';
+  }
+  if (!(/^[0-9]\d*(\.\d+)?$/).test(spaceData.amount)) {
+    errors.amount = 'Amount must be a number.';
+  }
   return errors;
 };
 export default UpdateCreateValidation;

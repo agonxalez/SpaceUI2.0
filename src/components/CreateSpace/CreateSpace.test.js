@@ -37,6 +37,24 @@ it('goes through post', () => {
 });
 it('goes through post', () => {
   createSpacePost.mockImplementation((setShuttle, setApiError) => {
+    setApiError(false);
+  });
+  render(<CreateSpace />);
+  const name = screen.getByTestId('name');
+  const description = screen.getByTestId('description');
+  const release = screen.getByTestId('release');
+  const active = screen.getByTestId('active');
+  const amount = screen.getByTestId('amount');
+  fireEvent.change(name, { target: { value: '' } });
+  fireEvent.change(description, { target: { value: '' } });
+  fireEvent.change(release, { target: { value: '' } });
+  fireEvent.change(active, { target: { value: '' } });
+  fireEvent.change(amount, { target: { value: '' } });
+  expect(screen.getByTestId('name').value).toBe('');
+  screen.getByTestId('buttonx').click();
+});
+it('goes through post', () => {
+  createSpacePost.mockImplementation((setShuttle, setApiError) => {
     setApiError(true);
   });
   render(<CreateSpace />);

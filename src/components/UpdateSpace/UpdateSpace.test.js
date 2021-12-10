@@ -2,7 +2,9 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import UpdateSpace from './UpdateSpace';
+import updateSpace from './UpdateSpace.Service';
 
+jest.mock('./UpdateSpace.service');
 const mockHistoryPush = jest.fn();
 const shuttle = [{
   name: 'danny',
@@ -45,4 +47,8 @@ it('render and click button', () => {
   );
   const name = screen.getByTestId('name');
   fireEvent.change(name, { target: { value: 'Danny' } });
+  updateSpace.mockImplementation((setShuttles, setApiError) => {
+    setShuttles(shuttle);
+    setApiError(false);
+  });
 });
