@@ -3,7 +3,27 @@
     font-size: 14px;
     margin: 0px 2px 4px 4px;
 }
+.errorMessage {
+    color: red;
+    position: relative;
+    padding-top: 0;
+}
+.loginbox .erroruserbox {
+    position: relative;
+}
 
+.loginbox .erroruserbox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid red;
+    outline: none;
+    background: transparent;
+    position: relative;
+}
 .signupSection {
     background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
     background-repeat: no-repeat;

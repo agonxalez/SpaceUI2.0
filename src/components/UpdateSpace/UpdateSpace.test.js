@@ -39,7 +39,7 @@ it('render and click button', () => {
   );
   fireEvent.click(screen.getByTestId('buttonx'));
 });
-it('render and click button', () => {
+it('render and click button', async () => {
   render(
     <MemoryRouter>
       <UpdateSpace />
@@ -47,8 +47,26 @@ it('render and click button', () => {
   );
   const name = screen.getByTestId('name');
   fireEvent.change(name, { target: { value: 'Danny' } });
-  updateSpace.mockImplementation((setShuttles, setApiError) => {
+  await updateSpace.mockImplementation((setShuttles, setApiError) => {
     setShuttles(shuttle);
     setApiError(false);
   });
+});
+it('goes through post', () => {
+  updateSpace.mockImplementation((setShuttle, setApiError) => {
+    setApiError(false);
+  });
+  render(<UpdateSpace />);
+  const name = screen.getByTestId('name');
+  const description = screen.getByTestId('description');
+  const release = screen.getByTestId('release');
+  const active = screen.getByTestId('active');
+  const amount = screen.getByTestId('amount');
+  fireEvent.change(name, { target: { value: 'Danny' } });
+  fireEvent.change(description, { target: { value: 'Danny' } });
+  fireEvent.change(release, { target: { value: '2021-12-12' } });
+  fireEvent.change(active, { target: { value: true } });
+  fireEvent.change(amount, { target: { value: 12 } });
+  expect(screen.getByTestId('name').value).toBe('Danny');
+  screen.getByTestId('buttonx').click();
 });
